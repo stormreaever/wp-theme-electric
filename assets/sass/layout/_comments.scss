@@ -1,34 +1,46 @@
 .comment-list {
-  margin: 48px 0 0 0;
+  margin: 48px 0 0;
   padding: 0;
   list-style: none;
-  
+
   & > li {
-    padding: 24px 0 0 0;
+    padding: 24px 0 0;
   }
+
   & > li.pingback {
     padding: 24px 0;
   }
   
   .children {
     margin: 0;
-    padding: 0 0 0 ;
+    padding: 0;
     list-style: none;
-    padding-left: 3em;
-    
+    padding-left: 0.75em;
+
     & > li {
       position: relative;
-      left: -3rem;
-      padding: 24px 0 0 0;
-      padding-left: 3rem;
-      margin-right: -3em;
+      left: -0.75rem;
+      padding: 24px 0 0 0.75rem;
+      margin-right: -0.75em;
+    }
+  }
+  @media(min-width: $menu-collapse-width) {
+    .children {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      padding-left: 3em;
+
+      & > li {
+        position: relative;
+        left: -3rem;
+        padding: 24px 0 0 3rem;
+        margin-right: -3em;
+      }
     }
   }
 }
-
-
 //comment form
-
 .comment-form-element label {
   display: block;
   background: $lightgrey;
@@ -36,6 +48,7 @@
   margin: 0.75rem 0;
   min-height: 2rem;
 }
+
 .comment-form-element-label {
   width: 96px;
   display: inline-block;
@@ -45,19 +58,22 @@
   text-transform: uppercase;
   font-weight: 700;
 }
+
 .comment-form-element {
-  textarea, input {
+  input,
+  textarea {
     display: block;
     width: calc(100% - 96px);
     border: none;
-    padding:0;
+    padding: 0;
     min-height: 2rem;
     background: transparent;
-    
-      &:focus {
-        outline: none;
-      }
+
+    &:focus {
+      outline: none;
+    }
   }
+
   textarea {
     padding: 6px 0;
     resize: vertical;

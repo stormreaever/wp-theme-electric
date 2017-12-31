@@ -38,3 +38,47 @@
   
   
 }
+
+.menu-toggle {
+  
+  display: block;
+  
+  border-radius: 100px;
+  border: none;
+  
+  cursor: pointer;
+  
+  float: right;
+  
+  width: 32px;
+  height: 32px;
+  margin: 24px 0;
+  margin-left: 16px;
+  
+  -moz-appearance:none;
+  -webkit-appearance:none;
+  appearance: none;
+  
+  
+  background: $lightgrey;
+  
+  svg {
+    margin: 8px 0;
+  }
+  
+  svg path {
+    fill: $black;
+  }
+  
+  &:focus {
+    outline: none;
+  }
+  
+}
+.toggled .menu-toggle {
+  background: $black;
+  
+  svg path {
+    fill: $lightgrey;
+  }
+}

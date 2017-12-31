@@ -33,7 +33,7 @@
 		</div><!-- .site-branding -->
 
 		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'electric' ); ?></button>
+			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false" alt="<?php esc_html_e( 'Primary Menu', 'electric' ); ?>"><?php include (get_template_directory() . '/assets/img/icon-hamburger.svg'); ?></button>
 			
 			<?php get_search_form(); ?>
 			

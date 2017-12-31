@@ -75,14 +75,17 @@ if ( ! function_exists( 'electric_entry_footer' ) ) :
 				/* translators: 1: list of tags. */
 				printf( '<span class="tags-links">' . esc_html__( 'tagged %1$s', 'electric' ) . '</span>', $tags_list ); // WPCS: XSS OK.
 			}
+			
+			if ( comments_open() || get_comments_number() ) {
+				
+				if ($categories_list || $tags_list) {
+					printf(' &nbsp;//&nbsp ');
+				}
+			}
 		}
 
 		if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
 			
-			
-			if ($categories_list || $tags_list) {
-				printf(' &nbsp;//&nbsp ');
-			}
 			
 			echo '<span class="comments-link">';
 			comments_popup_link(

@@ -27,15 +27,24 @@
     .search-form {
       float: right;
       margin-left: 36px;
-      
+
       input[type='search'] {
-        
         transition: all 0.5s;
         width: 0;
-        
+
         &:focus {
-          width: 200px;
+          width: calc(100vw - 32px - 48px - 32px - 48px - 24px - 24px);
           outline: none;
+        }
+        @media(min-width: $mobile-width) {
+          &:focus {
+            width: calc(100vw - 32px - 48px - 32px - 48px - 48px - 48px);
+          }
+        }
+        @media(min-width: $menu-collapse-width) {
+          &:focus {
+            width: 200px;
+          }
         }
       }
     }
@@ -60,19 +69,60 @@
         float: right;
 
         .nav-menu {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-          
+          list-style: none;
+          margin: 0;
+          padding: 0;
+
           li {
-          float: left;
-          a {
-            line-height: 80px;
-            padding: 0 12px;
+            float: left;
+
+            a {
+              line-height: 80px;
+              padding: 0 12px;
+            }
           }
         }
       }
+    }
+  }
+}
+// oops, mobile after 
+@media (max-width: $menu-collapse-width - 1px) {
+  .site-header {
+    
+    #site-navigation { 
+      float: none;
+    }
+    
+    #site-navigation .primary-nav {
+      display: block;
+    }
+    #site-navigation.toggled .primary-nav {
+      display: block;
+    }
+    
+    .primary-nav {
+      clear: both;
+      .menu {
+        margin: 0;
+        padding: 0;
+        list-style: none;
       }
+    }
+    .menu a {
+      padding: 0;
+      display: block;
+      border-top: 2px solid #000;
+      padding: 12px 0;
+      // opacity: 0;
+    }
+    .menu li {
+      max-height: 0;
+      overflow-y: hidden;
+      transition: all 0.5s;
+    }
+    .toggled .menu li {
+      max-height: 48px;
     }
   }
 }

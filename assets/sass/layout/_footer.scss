@@ -2,29 +2,34 @@
   clear: both;
   margin-top: 48px;
   border-top: 4px solid $black;
-  padding: 48px 0 0 0;
-  
+  padding: 48px 0 0;
+
   .site-footer-sections:after {
     content: "";
     display: table;
     clear: both;
   }
+  @media(min-width: $menu-collapse-width ) {
+    .site-footer-sections .widget,
+    .site-info {
+      width: calc(33% - 32px);
+      float: left;
+      margin-left: 48px;
 
-  .site-info, .site-footer-sections .widget {
-    width: calc(33% - 32px);
-    float: left;
-    margin-left: 48px;
-    &:first-child {
-      margin-left: 0;
+      &:first-child {
+        margin-left: 0;
+      }
     }
   }
-  
+
   & > .widget:last-child {
-    margin-bottom: 24px
-  }
-  
-  .site-info *:first-child {
-    margin-top: 0;
+    margin-bottom: 24px;
   }
 
+  .site-info {
+    margin-bottom: 48px;
+    *:first-child {
+      margin-top: 0;
+    }
+  }
 }
