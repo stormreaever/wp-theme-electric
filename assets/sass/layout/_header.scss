@@ -1,0 +1,78 @@
+.site-header {
+  border-bottom: 4px solid $black;
+
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  .site-title {
+    display: block;
+    float: left;
+    margin: 26px 0;
+
+    svg {
+      display: block;
+    }
+  }
+
+  #site-navigation {
+    float: right;
+
+    .menu-toggle {
+      float: right;
+    }
+
+    .search-form {
+      float: right;
+      margin-left: 36px;
+      
+      input[type='search'] {
+        
+        transition: all 0.5s;
+        width: 0;
+        
+        &:focus {
+          width: 200px;
+          outline: none;
+        }
+      }
+    }
+
+    .primary-nav {
+      display: none;
+    }
+  }
+}
+// full-size site nav (we're doing mobile first, y'all)
+@media (min-width: $menu-collapse-width) {
+  .site-header {
+    #site-navigation {
+      float: right;
+
+      .menu-toggle {
+        display: none;
+      }
+
+      .primary-nav {
+        display: block;
+        float: right;
+
+        .nav-menu {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+          
+          li {
+          float: left;
+          a {
+            line-height: 80px;
+            padding: 0 12px;
+          }
+        }
+      }
+      }
+    }
+  }
+}

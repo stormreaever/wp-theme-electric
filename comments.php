@@ -22,28 +22,14 @@ if ( post_password_required() ) {
 
 <div id="comments" class="comments-area">
 
+	
+	<h2 class="comments-title">
+		Comments
+	</h2><!-- .comments-title -->
+	
 	<?php
 	// You can start editing here -- including this comment!
 	if ( have_comments() ) : ?>
-		<h2 class="comments-title">
-			<?php
-			$comment_count = get_comments_number();
-			if ( 1 === $comment_count ) {
-				printf(
-					/* translators: 1: title. */
-					esc_html_e( 'One thought on &ldquo;%1$s&rdquo;', 'electric' ),
-					'<span>' . get_the_title() . '</span>'
-				);
-			} else {
-				printf( // WPCS: XSS OK.
-					/* translators: 1: comment count number, 2: title. */
-					esc_html( _nx( '%1$s thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', $comment_count, 'comments title', 'electric' ) ),
-					number_format_i18n( $comment_count ),
-					'<span>' . get_the_title() . '</span>'
-				);
-			}
-			?>
-		</h2><!-- .comments-title -->
 
 		<?php the_comments_navigation(); ?>
 
@@ -52,6 +38,7 @@ if ( post_password_required() ) {
 				wp_list_comments( array(
 					'style'      => 'ol',
 					'short_ping' => true,
+					'callback'   => 'electric_comments'
 				) );
 			?>
 		</ol><!-- .comment-list -->
@@ -66,7 +53,32 @@ if ( post_password_required() ) {
 
 	endif; // Check for have_comments().
 
-	comment_form();
+	$req = get_option( 'require_name_email' );
+	$aria_req = ( $req ? " aria-required='true'" : '' );
+
+	$fields = array(
+
+  'author' =>
+    '<div class="comment-form-element comment-form-author"><label for="author"><span class="comment-form-element-label">' . __( 'Name', 'domainreference' ) . 
+    '</span><input id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) .
+    '" size="30"' . $aria_req . ' /></label></div>',
+
+  'email' =>
+    '<div class="comment-form-element comment-form-email"><label for="email"><span class="comment-form-element-label">' . __( 'Email', 'domainreference' ) .
+    '</span><input id="email" name="email" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) .
+    '" size="30"' . $aria_req . ' /></label></div>'
+	);
+	
+	$comment_field = '<div class="comment-form-element comment-form-comment"><label for="comment"><span class="comment-form-element-label">' . _x( 'Comment', 'electric' ) .
+    '</span><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true">' .
+    '</textarea></label></div>';
+	
+	comment_form( array(
+		'fields' => $fields,
+		'comment_field' => $comment_field
+	) );
+	
+	
 	?>
 
 </div><!-- #comments -->

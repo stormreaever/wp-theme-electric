@@ -14,7 +14,7 @@ if ( ! function_exists( 'electric_posted_on' ) ) :
 	function electric_posted_on() {
 		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
 		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
-			$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
+			$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time>';
 		}
 
 		$time_string = sprintf( $time_string,
@@ -26,7 +26,7 @@ if ( ! function_exists( 'electric_posted_on' ) ) :
 
 		$posted_on = sprintf(
 			/* translators: %s: post date. */
-			esc_html_x( 'Posted on %s', 'post date', 'electric' ),
+			esc_html_x( '%s', 'post date', 'electric' ),
 			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
 		);
 
@@ -36,7 +36,7 @@ if ( ! function_exists( 'electric_posted_on' ) ) :
 			'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 		);
 
-		echo '<span class="posted-on">' . $posted_on . '</span><span class="byline"> ' . $byline . '</span>'; // WPCS: XSS OK.
+		echo '<span class="posted-on">' . $posted_on . '</span>'; // WPCS: XSS OK.
 
 	}
 endif;
@@ -48,22 +48,42 @@ if ( ! function_exists( 'electric_entry_footer' ) ) :
 	function electric_entry_footer() {
 		// Hide category and tag text for pages.
 		if ( 'post' === get_post_type() ) {
+			
+			// print author's name 
+			
+			$author = get_the_author();
+			
+			/* translators: 1: author name */
+			printf('<span class="author-name">' . esc_html__( 'by %1$s', 'electric' ) . '</span>', $author );
+			
+			printf(' &nbsp;//&nbsp ');
+			
 			/* translators: used between list items, there is a space after the comma */
 			$categories_list = get_the_category_list( esc_html__( ', ', 'electric' ) );
 			if ( $categories_list ) {
 				/* translators: 1: list of categories. */
-				printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'electric' ) . '</span>', $categories_list ); // WPCS: XSS OK.
+				printf( '<span class="cat-links">' . esc_html__( 'posted in %1$s', 'electric' ) . '</span>', $categories_list ); // WPCS: XSS OK.
 			}
 
 			/* translators: used between list items, there is a space after the comma */
 			$tags_list = get_the_tag_list( '', esc_html_x( ', ', 'list item separator', 'electric' ) );
 			if ( $tags_list ) {
+				if ($categories_list) {
+					printf(' &nbsp;//&nbsp ');
+				}
+				
 				/* translators: 1: list of tags. */
-				printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'electric' ) . '</span>', $tags_list ); // WPCS: XSS OK.
+				printf( '<span class="tags-links">' . esc_html__( 'tagged %1$s', 'electric' ) . '</span>', $tags_list ); // WPCS: XSS OK.
 			}
 		}
 
 		if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
+			
+			
+			if ($categories_list || $tags_list) {
+				printf(' &nbsp;//&nbsp ');
+			}
+			
 			echo '<span class="comments-link">';
 			comments_popup_link(
 				sprintf(
@@ -83,10 +103,11 @@ if ( ! function_exists( 'electric_entry_footer' ) ) :
 		}
 
 		edit_post_link(
+			
 			sprintf(
 				wp_kses(
 					/* translators: %s: Name of current post. Only visible to screen readers */
-					__( 'Edit <span class="screen-reader-text">%s</span>', 'electric' ),
+					__( ' &nbsp;//&nbsp; Edit <span class="screen-reader-text">%s</span>', 'electric' ),
 					array(
 						'span' => array(
 							'class' => array(),

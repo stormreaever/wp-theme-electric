@@ -23,6 +23,8 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 /*--------------------------------------------------------------
 # Normalize
 --------------------------------------------------------------*/
+
+@import "settings";
 @import "normalize";
 
 /*--------------------------------------------------------------
@@ -30,8 +32,6 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 --------------------------------------------------------------*/
 
 @import "accessibility";
-
-@import "settings";
 
 @import "typography/typography";
 

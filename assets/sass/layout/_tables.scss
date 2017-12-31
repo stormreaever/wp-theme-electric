@@ -1,0 +1,29 @@
+table {
+  max-width: 100%;
+  
+  thead {
+    border-bottom: 2px solid $black;
+  }
+  tr {
+    border-bottom: 1px solid $lightgrey;
+  }
+  th {
+    font-weight: bold;
+    font-size: 0.875rem;
+    @include uppercase;
+    text-align: left;
+  }
+  th, td {
+    padding:  4px 8px;
+    
+    .number {
+      text-align: right;
+    }
+  }
+  td {
+    font-family: "roboto mono", monospace;
+    font-weight: 400;
+    font-size: 0.75rem;
+  }
+  
+}

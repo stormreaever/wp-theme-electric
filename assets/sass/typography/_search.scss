@@ -1,0 +1,40 @@
+
+.search-form {
+  
+  padding: 24px 0;
+  
+  label {
+    display: block;
+    
+    background: $lightgrey url('../img/icon-search.svg') no-repeat 8px 8px;
+    background-size: 16px 16px;
+    border-radius: 100px;
+    height: 32px;
+    padding-left:32px;
+    
+    cursor: pointer;
+    
+  }
+  
+  input[type='search'] {
+    -moz-appearance:none;
+    -webkit-appearance:none;
+    appearance: none;
+    border: none;
+    height: 32px;
+    background: transparent;
+    
+    padding: 0;
+    
+    &:focus {
+      
+      outline: none;
+    }
+    
+  }
+  input[type='submit'] {
+    display: none;
+  }
+  
+  
+}

@@ -110,6 +110,25 @@ function electric_widgets_init() {
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	) );
+	
+	register_sidebar( array(
+		'name'          => esc_html__( 'Footer', 'electric' ),
+		'id'            => 'footer-1',
+		'description'   => esc_html__( 'Add widgets for the footer.', 'electric' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+	register_sidebar( array(
+		'name'          => esc_html__( 'Colophon', 'electric' ),
+		'id'            => 'footer-2',
+		'description'   => esc_html__( 'Add a final footer widget', 'electric' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
 }
 add_action( 'widgets_init', 'electric_widgets_init' );
 
@@ -143,6 +162,8 @@ require get_template_directory() . '/inc/template-tags.php';
  * Functions which enhance the theme by hooking into WordPress.
  */
 require get_template_directory() . '/inc/template-functions.php';
+// custom comments
+require get_template_directory() . '/inc/template-comments.php';
 
 /**
  * Customizer additions.

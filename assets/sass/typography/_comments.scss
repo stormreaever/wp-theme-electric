@@ -1,0 +1,42 @@
+#comments {
+  margin: 48px 0 48px 0;
+  border-top: 2px solid #000;
+  padding-top: 12px;
+}
+
+
+.comment-meta, .comment-reply-link {
+  font-family: "roboto mono", monospace;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+.comment-reply-link {
+  text-transform: lowercase;
+}
+
+.comment-list > li, .comment-list .children li {
+  margin: 0;
+  border-top: 2px solid $black;
+  padding: 24px 0;
+  font-size: 0.875rem;
+}
+
+.comment-meta, .comment-reply-link {
+  margin: 24px auto;
+}
+.comment-date, .comment-author {
+  margin: 12px 0;
+}
+
+
+// pingbacks 
+
+.pingback-entry {
+  font-size: 0.875rem; 
+}
+
+// new comment form 
+
+.comment-notes {
+  margin-bottom: 1.5rem;
+}

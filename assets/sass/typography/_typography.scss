@@ -1,5 +1,170 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto+Mono:400,700|Roboto:400,400i,500,700');
+@import url( 'https://fonts.googleapis.com/css?family=Roboto+Mono:400,500|Roboto:400,400i,500,700');
+@mixin uppercase {
+  // write the css here
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
 
 body {
-  font-family: $font-family-sans-serif;
+  font-family: $sans-serif;
+  line-height: 1.5;
+  color: $black;
 }
+
+.page-title {}
+
+.entry-title {
+  margin: 1em 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.entry-date {
+  font-family: "roboto mono", monospace;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.comments-title,
+.page-title,
+.post-nav-title,
+.widget-title {
+  font-size: 0.875rem;
+  @include uppercase;
+  margin: 0 0 12px;
+}
+
+.entry-footer {
+  text-transform: lowercase;
+  font-family: "roboto mono", monospace;
+  font-weight: 500;
+  font-size: 0.75rem;
+
+  .cat-links a,
+  .tags-links a {
+    text-transform: uppercase;
+  }
+}
+
+a {
+  color: $black;
+  text-decoration: none;
+}
+
+input, textarea {
+  font-family: "Roboto mono", monospace;
+  color: #000;
+  font-size: 0.75rem;
+  font-weight: 400;
+}
+input[type=submit] {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 2rem;
+  border: 2px solid $black;
+  background: transparent;
+  padding: 0 48px;
+  font-size: 0.75;
+  font-family: $sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: $black;
+  border-radius: 1rem;
+  
+  transition: all 0.5s;
+  
+  &:hover, &:focus {
+    outline: none;
+    background: $black;
+    color: #fff;
+  }
+}
+
+figcaption {
+  font-family: "Roboto mono", monospace;
+  font-size: 0.75em;
+  font-weight: 500;
+  margin-top: 12px;
+}
+
+.comment-content,
+.entry-content {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: 700;
+  }
+
+  h1,
+  h2 {
+    margin: 1.5rem 0;
+  }
+
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 1.25rem 0;
+  }
+
+  h1 {
+    font-size: 1.5em;
+  }
+
+  h2 {
+    font-size: 1em;
+    @include uppercase;
+  }
+
+  h3 {
+    font-size: 1em;
+  }
+
+  h4 {
+    font-size: 0.875em;
+    @include uppercase;
+  }
+
+  h5 {
+    font-size: 0.875em;
+  }
+
+  h6 {
+    font-size: 0.75em;
+  }
+
+  ol,
+  p,
+  pre,
+  ul {
+    margin: 1.25rem 0;
+
+    li ol,
+    li ul {
+      margin: 0;
+    }
+  }
+
+  code,
+  kbd,
+  pre,
+  samp {
+    font-size: 0.875em;
+  }
+}
+
+.comment-reply-title {
+  font-size: 1.25rem;
+}
+
+
+@import 'header';
+@import 'search';
+@import 'sidebar';
+@import 'footer';
+@import 'comments';
+@import 'tables';

@@ -1,0 +1,86 @@
+body {
+  padding: 0 48px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+#primary {
+  width: calc(75% - 48px);
+  float: left;
+}
+#secondary {
+  width: 25%;
+  float: left;
+  margin-left: 48px;
+}
+.site-footer {
+  clear: both;
+}
+
+article {
+  margin-bottom: 48px;
+  &:not(:first-child) {
+    
+    padding-top: 48px;
+    border-top: 2px solid $black;
+  }
+}
+
+.entry-footer {
+  margin-top: 24px;
+  clear: both;
+}
+
+.page-title {
+  margin-bottom: 48px;
+}
+
+img {
+  display: block;
+
+  max-width: 100%;
+  height: auto;
+}
+
+.alignright {
+  float: right;
+  margin: 24px 0 24px 24px;
+}
+.alignleft {
+  float: left;
+  margin: 24px 24px 24px 0;
+}
+.alignnone {
+  margin: 24px 0;
+}
+.aligncenter {
+  margin: 24px auto;
+}
+.alignnone, .alignleft, .alignright, .aligncenter {
+  display: block;
+}
+
+.nav-links {
+  
+  border-top: 2px solid $black;
+  padding-top: 12px;
+  
+  &:after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+  .nav-previous {
+    float: left;
+  }
+  .nav-next {
+    float: right;
+  }
+}
+
+@import "header";
+@import "content";
+@import "post";
+@import "comments";
+@import "footer";
+@import "tables";

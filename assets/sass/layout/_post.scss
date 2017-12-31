@@ -1,0 +1,51 @@
+.single-post-navigation {
+  margin-top: 48px 0 36px 0;
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  div {
+    width: calc(50% - 24px);
+    border-top: 2px solid $black;
+  }
+  
+  .prev-post-link {
+    float: left;    
+  }
+  .next-post-link {
+    float: right;
+    text-align: right;
+  }
+  
+  .post-nav-title {
+    margin-top: 12px;
+  }
+  
+  p {
+    font-size: 0.875rem;
+    margin: 12px 0 0 0;
+  }
+  
+}
+.single-post-category-more {
+  margin-top: 48px;
+  
+  border-top: 2px solid $black;
+  padding-top: 12px;
+  font-size: 0.875rem;
+  
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    li {
+      margin: 12px 0;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+  
+}

@@ -1,0 +1,14 @@
+.widget {
+  border-top: 2px solid $black;
+  margin-bottom: 48px;
+  padding-top: 12px;
+  font-size: 0.875rem;
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    li {
+      margin: 12px 0;
+    }
+  }
+}

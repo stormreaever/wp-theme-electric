@@ -1,0 +1,26 @@
+.site-footer {
+  
+  font-size: 0.875rem;
+
+  .site-info .social-icons {
+    margin-top: 1.5rem;
+    a {
+      display: inline-block;
+      margin-right: 0.75rem;
+    }
+    a svg {
+      height: 24px;
+      width: 24px;
+      display:block;
+    }
+    a svg path {
+      fill: $black;
+      opacity: 0.25;
+      transition: opacity 0.5s;
+    }
+    a:hover svg path {
+      opacity: 1;
+    }
+    
+  }
+}
